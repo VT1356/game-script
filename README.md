@@ -39,3 +39,4 @@ Cùng chơi với script
 - Kêu gọi các nhà đầu tư lấy quỹ chung
 
 ### Liên kết các bài tập
+Tuần 11 - 2015: https://github.com/hocchudong/game-script/tree/master/tuan11
