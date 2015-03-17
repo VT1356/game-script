@@ -1,6 +1,7 @@
 ﻿# Đề bài tuần 11
 - Đặt tên theo quy ước: CONGTT_Bai1_Tuan11
 - Đặt vào thư mục tuan11
+
 ### Cá nhân
 
 ##### Bài 1: (NAMNH)
@@ -65,7 +66,7 @@
 ```
 - Viết chương trình liệt các file và thư mục có dung lượng dưới 1MB trong thư mục hiện tại vào file danhsach.txt
 - Sau đó xóa các file và danh sách nói trên (danh sách và file dưới 1MB)
-
+```
 
 
 
