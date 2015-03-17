@@ -16,6 +16,7 @@ if [ "$tt" = "Ubuntu" ] ; then
 	else
 	echo "Update he thong!!!"
 	sleep 2
+	#apt-get -y upgrade && apt-get -y dist-upgrade
 	apt-get update
 	apt-get install -y apache2
 	tput setaf 2
@@ -36,6 +37,9 @@ elif [ "$tt" = "CentOS" ] ; then
 	ifconfig | grep -w inet | grep Bcast | awk -F ':' '{print $2}' | awk '{print $1}'
 	echo "thong qua port:`cat /etc/httpd/conf/httpd.conf | grep  Listen | grep -v ^# | awk '{print $2}'`"
 	else
+	echo "Update he thong"
+	sleep 2
+	yum update
 	yum -y install httpd
 	tput setaf 2
 	echo "Nhap port ban muon doi:"
