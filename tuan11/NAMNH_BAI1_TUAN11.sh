@@ -24,7 +24,12 @@ if [ "$tt" = "Ubuntu" ] ; then
 	read p
 	tput setaf 7
 	sed -i "s/80/$p/" /etc/apache2/ports.conf
+	sed -i "s/<VirtualHost *:80>/<VirtualHost *:$p>/" /etc/apache2/sites-enabled/000-default.conf
 	service apache2 restart
+	# Mo port cho may
+	service ufw start
+	iptables  -A INPUT  -p tcp --dport $p -j ACCEPT
+	iptables  -A OUTPUT -p tcp --sport $p -j ACCEPT
 	# Xong
 	echo "Da cai xong web-server. Dia chi web-server la:`ifconfig | grep -w inet | grep Bcast | awk -F ':' '{print $2}' | awk '{print $1}'`"
 	echo "Voi port la port ban vua chuyen !!! "
@@ -47,6 +52,10 @@ elif [ "$tt" = "CentOS" ] ; then
 	tput setaf 7
 	sed -i "s/Listen 80/Listen $p/" /etc/httpd/conf/httpd.conf
 	service httpd restart
+	# Mo port cho web-server
+	service iptables start
+	iptables  -A INPUT  -p tcp --dport $p -j ACCEPT
+	iptables  -A OUTPUT -p tcp --sport $p -j ACCEPT
 	echo "Da cai xong web-server. Dia chi web-server la:`ifconfig | grep -w inet | grep Bcast | awk -F ':' '{print $2}' | awk '{print $1}'`"
 	echo "Voi port la port ban vua chuyen !!! "
 	fi
